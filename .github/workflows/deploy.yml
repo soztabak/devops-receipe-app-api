@@ -69,6 +69,15 @@ jobs:
           docker compose run --rm terraform -chdir=deploy/ workspace select -or-create $workspace
           docker compose run --rm terraform -chdir=deploy/ plan -out=tfplan
 
+      - name: Display structure of files 1
+        run: ls -R $GITHUB_WORKSPACE
+
+      - name: Display structure of files 2
+        run: ls -R $GITHUB_WORKSPACE/infra
+
+      - name: Display structure of files 3
+        run: ls -R $GITHUB_WORKSPACE/infra/deploy
+
       - name: Save terraform plan to artifacts
         uses: actions/upload-artifact@v4
         with:
